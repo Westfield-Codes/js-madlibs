@@ -34,31 +34,37 @@ button:hover{
   width:10em;
 }
 
+input {
+width:80%;
+padding: 50px;
+border: 2px solid black;
+margin:auto;
+border-color:rgb(235, 120, 120);
+background-color: white;
+color: black;
+font-size:14pt;
+border-radius: 25px;
+top:220px;
+text-align:center;
+}
+
 #popUp{
-position:absolute;
-width:80%;
-height:500px;
-padding: 50px;
-border: 2px solid black;
-margin:auto;
-border-color:rgb(235, 120, 120);
-background-color: white;
-color: #d90d0d;
-border-radius: 25px;
+  left:5%;
+  width:80%;
+  padding: 50px;
+  border: 2px solid black;
+  margin:auto;
+  border-color:rgb(235, 120, 120);
+  background-color: white;
+  color: #d90d0d;
+  border-radius: 25px;
+  font-size:14pt;
 }
 
-input{
-width:80%;
-height:300px;
-padding: 50px;
-border: 2px solid black;
-margin:auto;
-border-color:rgb(235, 120, 120);
-background-color: white;
-color: #d90d0d;
-border-radius: 25px;
+#popUp p {
+  color:blue;
+  padding-bottom:.5em;
 }
-
 textarea{
   width: 40%;
   height: 500px;
@@ -76,4 +82,15 @@ textarea p{
   height: 3em;
   font-size: 32pt;
   margin-top: 10px;
+}
+
+#storyBox {
+  position:absolute;
+  left:5%;
+  top:10px;
+  width:80%;
+  border:2px solid red;
+  background:white;
+  border-radius:20px;
+  padding:50px;
 }
