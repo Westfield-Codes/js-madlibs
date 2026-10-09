@@ -137,7 +137,7 @@ function wordsToReplace(){
 /* User interaction for loop */
 function replaceWords(){
     message = "What part of speech is <strong>" + story[replacements[word]] + "</strong>?";
-    getInput(message,"Type one: noun, plural noun, Proper Noun, verb, adjective, adverb, preposition",nextReplacement)
+    getInput(message,"noun, plural noun, Proper Noun, verb, adjective, adverb, preposition",nextReplacement)
 }
 
 /* extReplacement
@@ -172,9 +172,10 @@ function nextPOSWord(){
 * @return replacements
 */
 function rebuildStory() {
-    let newWord = makePopUp("Give me some words that correspond with the parts of speech. Are you ready?",0,0);
+    let newWord = alert("Give me some words that correspond with the parts of speech. Are you ready?");
     let i = 1;
-    if (i < replacements.length) {
+    if (i <= replacements.length) {
+        console.log("Replacements:" + replacements.length);
         getReplacement(i, newWord);
         i++;
     }
@@ -183,6 +184,7 @@ function rebuildStory() {
 
 function getReplacement(i, newWord) {
     newWord = prompt(story[replacements[i]]);
+    console.log("newWord = " + story[replacements[i]] + " " + newWord);
     story[replacements[i]] = newWord;
 }
 /* storyWithSpaces: join the madlibbed story array into a single string with spaces */
@@ -209,20 +211,19 @@ function getInput(instruct, message, target) {
         inputBox.id = "inputBox";
         popUp.appendChild(inputBox); 
     }
-    if (target != "0"){
-        let inputButton = document.createElement("button");
-        inputButton.id = "inputButton";
-        inputButton.innerHTML = "Done";
-        inputButton.addEventListener("click", function(){
-            closePopUp(target);
-        }, false);
-        popUp.appendChild(inputButton);
-        if (!document.getElementById("popUp")){
-            document.body.appendChild(popUp);
-        }
-    else {
-         document.getElementById("popUp").remove();
-        }
+    let inputButton = document.createElement("button");
+    inputButton.id = "inputButton";
+    inputButton.innerHTML = "Done";
+    // DO I HAVE AN EVENT LISTENER STACK PROBLEM????
+    // const oldElement = document.getElementById('popUp');
+    // const newElement = oldElement.cloneNode(true);
+    // oldElement.replaceWith(newElement);
+    inputButton.addEventListener("click", function(){
+        closePopUp(target);
+    }, false);
+    popUp.appendChild(inputButton);
+    if (!document.getElementById("popUp")){
+        document.body.appendChild(popUp);
     }
 }
 
